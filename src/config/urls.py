@@ -1,12 +1,11 @@
 
 from django.contrib import admin
 from django.urls import path
-from core.views import saludar , saludar_con_etiqueta, home
+from core.views import home, CategoriaList, CategoriaCreate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", home),
-    path('saludar/', saludar),
-    path("saludar2", saludar_con_etiqueta)
-    ]
-
+    path('', home, name= "home"),
+    path('categorias/', CategoriaList.as_view(), name="categorias"),
+    path('categorias/create', CategoriaCreate.as_view(), name="categorias"),
+]

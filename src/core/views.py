@@ -1,11 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView
+)
+from core.models import Categoria
+from core.forms import CategoriaForm
 
 def home(request):
     return render(request, "core/index.html")
 
-def saludar(request):
-    return HttpResponse("Hola desde Django")
-
-def saludar_con_etiqueta(request):
-    return HttpResponse ("<h1>Hola con etiqueta</h1>")
+class CategoriaList(ListView):
+    model = Categoria 
+   
+class CategoriaCreate (CreateView): 
+    model = Categoria 
+    form_class = CategoriaForm
+    success_url = "categoria/"
+    template_name = "core/categoria_form.html"
