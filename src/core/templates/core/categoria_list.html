@@ -9,7 +9,11 @@
 <h1>Categorías</h1>
 
 {% for categoria in object_list %}
-    <p>{{ categoria }}</p>
+    <p>{{ categoria.id }} {{ categoria.nombre }}
+        <a href="#">Detalle</a> 
+        <a href="#">Editar</a> 
+        <a href="#">Eliminar</a> 
+    </p>
 {% endfor %}
 </body>
 </html>
