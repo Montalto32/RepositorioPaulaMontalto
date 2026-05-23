@@ -18,5 +18,13 @@ class CategoriaList(ListView):
 class CategoriaCreate (CreateView): 
     model = Categoria 
     form_class = CategoriaForm
-    success_url = "/categoria/"
+    success_url = "/categorias/"
    # template_name = "core/categoria_form.html"
+
+class CategoriaUpdate(UpdateView):
+    model = Categoria 
+    form_class = CategoriaForm
+    success_url = "/categorias/"
+
+class CategoriaDetail(DetailView):
+    model = Categoria 
