@@ -11,6 +11,7 @@
     {% else %}
         <p> Categoría: Crear </p>
     {% endif %}
+    <button><a href="/categorias/">Volver</a>"</button>
     <form method="post">
         {% csrf_token %}
         {{ form }}

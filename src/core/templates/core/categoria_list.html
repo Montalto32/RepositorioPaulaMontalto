@@ -7,13 +7,21 @@
 </head>
 <body>
 <h1>Categorías</h1>
+<form method get >
+    <input type="text" name="consulta" id=""placeholder="Buscar...">
+    <button type="submit"> Buscar </button>
 
+</form>
+<button><a href="/categorias/create/">Crear</a>"</button>
+
+<ul>
 {% for categoria in object_list %}
     <p>{{ categoria.id }} {{ categoria.nombre }}
         <a href="/categorias/detail/{{ categoria.id }}">Detalle</a> 
         <a href="/categorias/update/{{ categoria.id }}">Editar</a> 
-        <a href="#">Eliminar</a> 
+        <a href="/categorias/delete/{{ categoria.id }}">Eliminar</a> 
     </p>
 {% endfor %}
+</ul>
 </body>
 </html>
