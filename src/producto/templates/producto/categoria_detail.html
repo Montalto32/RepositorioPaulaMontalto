@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Categorías: Detalle </h1>
-    <button><a href="/categorias/">Volver</a>"</button>
+    <button><a href="{% "producto:categoria_detail" categoria.id %}">Volver</a>"</button>
     <ul>
         <li>
             <strong> Nombre: </strong> {{ object.nombre}}

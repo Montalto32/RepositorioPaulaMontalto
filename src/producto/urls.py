@@ -8,8 +8,10 @@ from producto.views import (
     CategoriaDelete,
 )
 
+app_name = "producto"
+
 urlpatterns = [
-    path("", CategoriaList.as_view(), name="categorias"),
+    path("", CategoriaList.as_view(), name="categoria_home"),
     path("create/", CategoriaCreate.as_view(), name="categoria_create"),
     path("update/<int:pk>/", CategoriaUpdate.as_view(), name="categoria_update"),
     path("detail/<int:pk>/", CategoriaDetail.as_view(), name="categoria_detail"),

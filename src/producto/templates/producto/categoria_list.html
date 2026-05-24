@@ -12,14 +12,15 @@
     <button type="submit"> Buscar </button>
 
 </form>
-<button><a href="/categorias/create/">Crear</a>"</button>
+<button><a href="{% "producto:categoria_create" categoria.id %}">Crear</a>"</button>
+<button><a href={% url "home" %}>Inicio</a>"</button>
 
 <ul>
 {% for categoria in object_list %}
     <p>{{ categoria.id }} {{ categoria.nombre }}
-        <a href="/categorias/detail/{{ categoria.id }}">Detalle</a> 
-        <a href="/categorias/update/{{ categoria.id }}">Editar</a> 
-        <a href="/categorias/delete/{{ categoria.id }}">Eliminar</a> 
+        <a href={% "producto:categoria_detail" categoria.id %}>Detalle</a> 
+        <a href="{% "producto:categoria_update" categoria.id %}">Editar</a> 
+        <a href="{% "producto:categoria_delete" categoria.id %}">Eliminar</a> 
     </p>
 {% endfor %}
 </ul>
