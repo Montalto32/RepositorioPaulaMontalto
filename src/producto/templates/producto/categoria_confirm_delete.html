@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eliminar categoría</title>
 </head>
 <body>
-    <h1>Categorías: Eliminar </h1>
-    <p> ¿Está seguro que desea eliminar la categoría "{{ object.nombre }}"? </p>
-    <form method="post">
-    <button><a href="{% "producto:categoria_delete" categoria.id %}">Cancelar</a>"</button>
-        {% csrf_token %}
-        <button type="submit"> Confirmo </button>
-    </form>
+
+<h1>Categorías: Eliminar</h1>
+
+<p>
+    ¿Está seguro que desea eliminar la categoría "{{ object.nombre }}"?
+</p>
+
+<form method="post">
+    {% csrf_token %}
+
+    <button type="submit">Confirmo</button>
+
+    <a href="{% url 'producto:categoria_home' %}">
+        Cancelar
+    </a>
+</form>
 
 </body>
 </html>

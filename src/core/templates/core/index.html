@@ -1,13 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EcoCompost - Gestión Inteligente de Residuos Orgánicos</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=1920') no-repeat center center/cover;
+            min-height: 80vh;
+        }
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold text-success" href="#">
+                <i class="bi bi-recycle me-2 fs-3"></i> EcoCompost
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link fw-semibold text-dark" href="#conoce-mas">Conocé más</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <!-- Botón Producto con la URL de Django -->
+                        <a class="nav-link fw-semibold text-dark" href="{% url 'producto:categoria_home' %}">Producto</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-success rounded-pill px-4" href="#contacto">Sumate hoy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section d-flex align-items-center text-white text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-success rounded-pill px-3 py-2 mb-3 tracking-wider text-uppercase">Impacto Verde Real</span>
+                    <h1 class="display-3 fw-bold mb-4">Transformamos tus residuos en vida</h1>
+                    <p class="lead mb-5 opacity-90">Ofrecemos soluciones integrales de compostaje adaptadas para hogares, empresas y grandes instituciones. Reducí tu huella ambiental de forma simple y certificada.</p>
+                    <div class="d-sm-flex justify-content-center gap-3">
+                        <!-- Redirección también en el botón de acción principal -->
+                        <a href="{% url 'producto:categoria_home' %}" class="btn btn-success btn-lg rounded-pill px-5 py-3 mb-3 mb-sm-0 shadow">Ver Planes</a>
+                        <a href="#conoce-mas" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3">Saber Más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTORES DE ATENCIÓN -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row g-4 text-center">
+                <!-- Domicilios -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 hover-card">
+                        <div class="bg-success-subtle text-success rounded-circle mx-auto d-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="bi bi-house-heart fs-2"></i>
+                        </div>
+                        <h3 class="h4 fw-bold">Domicilios</h3>
+                        <p class="text-muted">Kits compactos y recolección programada en tu puerta. Compostá en casa sin olores, sin plagas y con asesoramiento constante.</p>
+                    </div>
+                </div>
+                <!-- Empresas -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 hover-card">
+                        <div class="bg-success-subtle text-success rounded-circle mx-auto d-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="bi bi-building fs-2"></i>
+                        </div>
+                        <h3 class="h4 fw-bold">Empresas</h3>
+                        <p class="text-muted">Potenciá tus metas ESG y de Responsabilidad Social. Diseñamos estaciones de reciclaje corporativo con reportes de impacto mensual.</p>
+                    </div>
+                </div>
+                <!-- Instituciones -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 rounded-4 hover-card">
+                        <div class="bg-success-subtle text-success rounded-circle mx-auto d-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                            <i class="bi bi-backpack fs-2"></i>
+                        </div>
+                        <h3 class="h4 fw-bold">Instituciones</h3>
+                        <p class="text-muted">Planes a gran escala para colegios, universidades y municipios. Talleres educativos, infraestructura robusta y logística eficiente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CONOCÉ MÁS -->
+    <section id="conoce-mas" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800" alt="Compost y plantas" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <span class="text-success fw-bold text-uppercase tracking-wider">¿Por qué compostar?</span>
+                    <h2 class="display-5 fw-bold mt-2 mb-4">El 40% de tu basura diaria es orgánica. No dejes que termine en un basural.</h2>
+                    <p class="text-muted mb-4">Cuando los residuos orgánicos se entierran en un vertedero tradicional, generan gas metano, uno de los principales causantes del cambio climático. El compostaje transforma ese problema en la solución más fértil para nuestros suelos.</p>
+                    
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Reducción inmediata de huella de carbono</h5>
+                            <p class="text-muted">Evitamos emisiones de gases de efecto invernadero mediante tratamientos controlados y aeróbicos.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-check-circle-fill text-success fs-4 me-3"></i>
+                        <div>
+                            <h5 class="fw-bold mb-1">Economía Circular Activa</h5>
+                            <p class="text-muted">Devolvemos la materia orgánica a la tierra en forma de nutrientes puros para huertas y espacios verdes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTO -->
+    <footer id="contacto" class="bg-dark text-white py-5">
+        <div class="container py-4">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h3 class="fw-bold text-success mb-3"><i class="bi bi-recycle me-2"></i>EcoCompost</h3>
+                    <p class="opacity-75 max-w-sm">Haciendo que la sustentabilidad urbana e industrial sea simple, medible y transformadora.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <h5 class="fw-bold mb-3">¿Listo para empezar?</h5>
+                    <p class="opacity-75 mb-4">Escribinos para cotizar un plan a tu medida.</p>
+                    <a href="mailto:info@ecocompost.com" class="btn btn-success rounded-pill px-4 py-2"><i class="bi bi-envelope me-2"></i>info@ecocompost.com</a>
+                </div>
+            </div>
+            <hr class="my-4 opacity-20 bg-light">
+            <div class="row">
+                <div class="col text-center text-muted small">
+                    <p class="mb-0">&copy; 2026 EcoCompost. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle con Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-hola 
-Hola Django

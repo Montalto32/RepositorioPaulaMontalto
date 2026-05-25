@@ -11,7 +11,7 @@
     {% else %}
         <p> Categoría: Crear </p>
     {% endif %}
-    <button><a href="{% "producto:categoria_home" categoria.id %}">Volver</a>"</button>
+    <button><a href="{% url 'producto:categoria_home'%}">Volver</a>"</button>
     <form method="post">
         {% csrf_token %}
         {{ form }}

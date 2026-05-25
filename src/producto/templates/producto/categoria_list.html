@@ -2,27 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Categorías</title>
 </head>
 <body>
-<h1>Categorías</h1>
-<form method get >
-    <input type="text" name="consulta" id=""placeholder="Buscar...">
-    <button type="submit"> Buscar </button>
 
+<h1>Categorías</h1>
+
+<form method="get">
+    <input type="text" name="consulta" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
 </form>
-<button><a href="{% "producto:categoria_create" categoria.id %}">Crear</a>"</button>
-<button><a href={% url "home" %}>Inicio</a>"</button>
+
+<a href="{% url 'producto:categoria_create' %}">Crear categoría</a>
+<a href="{% url 'core:home' %}">Inicio</a>
 
 <ul>
-{% for categoria in object_list %}
-    <p>{{ categoria.id }} {{ categoria.nombre }}
-        <a href={% "producto:categoria_detail" categoria.id %}>Detalle</a> 
-        <a href="{% "producto:categoria_update" categoria.id %}">Editar</a> 
-        <a href="{% "producto:categoria_delete" categoria.id %}">Eliminar</a> 
-    </p>
-{% endfor %}
+    {% for categoria in categorias %}
+        <li>
+            {{ categoria.id }} - {{ categoria.nombre }}
+
+            <a href="{% url 'producto:categoria_detail' categoria.id %}">Detalle</a>
+            <a href="{% url 'producto:categoria_update' categoria.id %}">Editar</a>
+            <a href="{% url 'producto:categoria_delete' categoria.id %}">Eliminar</a>
+        </li>
+    {% empty %}
+        <li>No hay categorías</li>
+    {% endfor %}
 </ul>
+
 </body>
 </html>
